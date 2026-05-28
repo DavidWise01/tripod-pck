@@ -1,0 +1,108 @@
+[
+  {
+    "event_id": "09e78ae244fa35d5c5bed4012f8583fc05f0c076c8edb7b18fa1ec878e899b4d",
+    "modules": [
+      {
+        "module": "ai_traversal",
+        "status": "placeholder",
+        "wisdom_residue": "PCK orchestration seed event"
+      },
+      {
+        "continuity_root": "380acda5b10b5bf7f85e8d57d9878f05a94ab245f25f9cbab5f988690c3ca6a3",
+        "module": "state_store",
+        "status": "ok"
+      }
+    ],
+    "record": {
+      "actions": [
+        "assimilate",
+        "block_release",
+        "confirm_root",
+        "decay",
+        "hold_private",
+        "preserve",
+        "promote_wisdom",
+        "quarantine",
+        "reject_publish",
+        "rest"
+      ],
+      "continuity_root": "380acda5b10b5bf7f85e8d57d9878f05a94ab245f25f9cbab5f988690c3ca6a3",
+      "event_hash": "96f4111cefd581f7be9c13b064f0d644dbec532485b48736117fd911d35bb42c",
+      "event_id": "09e78ae244fa35d5c5bed4012f8583fc05f0c076c8edb7b18fa1ec878e899b4d",
+      "previous_root": null,
+      "primitive_state": "prune",
+      "record_hash": "7931990aee5875194e8cbc9811c7cadbbd1f3e1cb38d659b7a643bcf4ff95d50",
+      "root_transition": "GENESIS -> prune",
+      "schema": "PCK.EVAL.v0.1",
+      "timestamp": "2026-05-13T15:09:03Z",
+      "triggered": [
+        {
+          "action": "preserve",
+          "domain": "identity",
+          "reason": "continuity requires source, time, and container",
+          "rule_id": "R01"
+        },
+        {
+          "action": "quarantine",
+          "domain": "identity",
+          "reason": "claimed authority without continuity is unsafe",
+          "rule_id": "R02"
+        },
+        {
+          "action": "assimilate",
+          "domain": "identity",
+          "reason": "identity coherence binds event to root",
+          "rule_id": "R03"
+        },
+        {
+          "action": "hold_private",
+          "domain": "privacy",
+          "reason": "absence of release keeps event internal",
+          "rule_id": "R06"
+        },
+        {
+          "action": "preserve",
+          "domain": "memory",
+          "reason": "recurrence with lineage earns persistence",
+          "rule_id": "R07"
+        },
+        {
+          "action": "decay",
+          "domain": "memory",
+          "reason": "no signal means no persistence pressure",
+          "rule_id": "R09"
+        },
+        {
+          "action": "promote_wisdom",
+          "domain": "wisdom",
+          "reason": "lesson validated by later survival",
+          "rule_id": "R12"
+        },
+        {
+          "action": "block_release",
+          "domain": "artifact",
+          "reason": "public artifacts cannot leak private roots",
+          "rule_id": "R15"
+        },
+        {
+          "action": "reject_publish",
+          "domain": "publication",
+          "reason": "unlineaged claims do not leave root",
+          "rule_id": "R18"
+        },
+        {
+          "action": "confirm_root",
+          "domain": "repair",
+          "reason": "agreement confirms continuity",
+          "rule_id": "R24"
+        },
+        {
+          "action": "rest",
+          "domain": "valve",
+          "reason": "no active pressure enters consolidation",
+          "rule_id": "R27"
+        }
+      ]
+    }
+  }
+]

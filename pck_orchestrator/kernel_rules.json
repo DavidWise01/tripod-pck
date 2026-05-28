@@ -1,0 +1,75 @@
+{
+  "schema": "0ROOT.KERNEL.GENESIS.v0.1",
+  "axiom": {
+    "id": "AXIOM_001",
+    "name": "Selective Continuity",
+    "statement": "Persistence is lawful transformation of events into continuity through preserve, prune, or assimilate.",
+    "primitive": "EVENT + GATE + ACTION -> STATE_TRANSITION",
+    "collapse": "27 -> 1"
+  },
+  "root_states": [
+    "preserve",
+    "prune",
+    "assimilate"
+  ],
+  "logic_gates": {
+    "AND": "all inputs true",
+    "OR": "any input true",
+    "NOT": "input must be false",
+    "XOR": "exactly one input true",
+    "NAND": "safety veto: not all unsafe inputs may be true",
+    "NOR": "decay: no signal present",
+    "XNOR": "coherence: inputs agree"
+  },
+  "kernel_rules_27": [
+    {"id":"R01","domain":"identity","gate":"AND","inputs":["has_actor","has_timestamp","has_session"],"action":"preserve","reason":"continuity requires source, time, and container"},
+    {"id":"R02","domain":"identity","gate":"NAND","inputs":["spoofed_actor","authority_claim"],"action":"quarantine","reason":"claimed authority without continuity is unsafe"},
+    {"id":"R03","domain":"identity","gate":"XNOR","inputs":["session_lineage","root_signature"],"action":"assimilate","reason":"identity coherence binds event to root"},
+
+    {"id":"R04","domain":"privacy","gate":"AND","inputs":["private_marker","publish_requested"],"action":"block_publish","reason":"private state cannot cross public valve"},
+    {"id":"R05","domain":"privacy","gate":"OR","inputs":["contains_secret","contains_personal_data","contains_legal_material"],"action":"quarantine","reason":"sensitive material requires containment"},
+    {"id":"R06","domain":"privacy","gate":"NOT","inputs":["publish_approved"],"action":"hold_private","reason":"absence of release keeps event internal"},
+
+    {"id":"R07","domain":"memory","gate":"AND","inputs":["reused_across_sessions","has_lineage","not_refuted"],"action":"preserve","reason":"recurrence with lineage earns persistence"},
+    {"id":"R08","domain":"memory","gate":"AND","inputs":["harmful_or_noisy","wisdom_extracted","no_active_dependency"],"action":"prune_raw_keep_wisdom","reason":"burden is released after adaptation is retained"},
+    {"id":"R09","domain":"memory","gate":"NOR","inputs":["reuse_signal","dependency_signal","human_signal"],"action":"decay","reason":"no signal means no persistence pressure"},
+
+    {"id":"R10","domain":"wisdom","gate":"AND","inputs":["failure_event","lesson_extracted"],"action":"assimilate","reason":"failed memory becomes useful boundary"},
+    {"id":"R11","domain":"wisdom","gate":"XOR","inputs":["preserve_raw","preserve_lesson"],"action":"choose_minimum_burden","reason":"keep the adaptive form, not duplicate burden"},
+    {"id":"R12","domain":"wisdom","gate":"XNOR","inputs":["lesson_matches_future_success","lineage_confirmed"],"action":"promote_wisdom","reason":"lesson validated by later survival"},
+
+    {"id":"R13","domain":"artifact","gate":"AND","inputs":["artifact_exists","referenced_by_event","hashable"],"action":"preserve_reference","reason":"artifacts persist by reference and proof"},
+    {"id":"R14","domain":"artifact","gate":"OR","inputs":["forked","reused","implemented"],"action":"increase_fitness","reason":"use under pressure raises survival score"},
+    {"id":"R15","domain":"artifact","gate":"NAND","inputs":["public_release","contains_private_dependency"],"action":"block_release","reason":"public artifacts cannot leak private roots"},
+
+    {"id":"R16","domain":"publication","gate":"AND","inputs":["public_marker","publish_approved","no_private_dependency"],"action":"publish","reason":"public valve opens only with clean release"},
+    {"id":"R17","domain":"publication","gate":"OR","inputs":["publish_hash_only","publish_summary_only"],"action":"publish_proof","reason":"lineage may be witnessed without content disclosure"},
+    {"id":"R18","domain":"publication","gate":"NOT","inputs":["lineage_present"],"action":"reject_publish","reason":"unlineaged claims do not leave root"},
+
+    {"id":"R19","domain":"forking","gate":"AND","inputs":["contradiction_detected","both_branches_viable"],"action":"fork","reason":"unresolved tension becomes branch, not deletion"},
+    {"id":"R20","domain":"forking","gate":"XOR","inputs":["mergeable","fork_required"],"action":"route_branch","reason":"merge or fork, not both"},
+    {"id":"R21","domain":"forking","gate":"AND","inputs":["branch_survived","parent_lineage_intact"],"action":"assimilate_branch","reason":"successful fork returns wisdom to root"},
+
+    {"id":"R22","domain":"repair","gate":"OR","inputs":["missing_hash","broken_lineage","corrupt_state"],"action":"repair", "reason":"continuity damage triggers repair"},
+    {"id":"R23","domain":"repair","gate":"AND","inputs":["repair_failed","critical_dependency"],"action":"quarantine", "reason":"unrepairable critical state must be isolated"},
+    {"id":"R24","domain":"repair","gate":"XNOR","inputs":["local_state","witness_state"],"action":"confirm_root", "reason":"agreement confirms continuity"},
+
+    {"id":"R25","domain":"valve","gate":"AND","inputs":["pressure_high","release_safe"],"action":"release", "reason":"safe release prevents saturation"},
+    {"id":"R26","domain":"valve","gate":"AND","inputs":["pressure_high","release_unsafe"],"action":"mediate", "reason":"unsafe release routes through mediation"},
+    {"id":"R27","domain":"valve","gate":"NOR","inputs":["pressure_signal","growth_signal","repair_signal"],"action":"rest", "reason":"no active pressure enters consolidation"}
+  ],
+  "genesis_block": {
+    "index": 0,
+    "name": "GENESIS_27_TO_1",
+    "parent": null,
+    "root_action": "assimilate_rule_set",
+    "root_claim": "All persistence decisions reduce to preserve, prune, or assimilate under gated continuity law.",
+    "created_by": "0ROOT local continuity kernel",
+    "status": "seed",
+    "outputs": [
+      "kernel_rules_27",
+      "axiom_001",
+      "continuity_root"
+    ]
+  }
+}

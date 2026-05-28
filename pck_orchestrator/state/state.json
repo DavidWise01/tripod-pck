@@ -1,0 +1,8 @@
+{
+  "continuity_root": "380acda5b10b5bf7f85e8d57d9878f05a94ab245f25f9cbab5f988690c3ca6a3",
+  "counts": {
+    "prune": 1
+  },
+  "events_seen": 1,
+  "schema": "PCK.STATE.v0.1"
+}

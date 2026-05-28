@@ -1,0 +1,25 @@
+{
+  "schema": "PCK.CONFIG.v0.1",
+  "root_id": "0root.local",
+  "paths": {
+    "inbox": "events/inbox.jsonl",
+    "state": "state/state.json",
+    "ledger": "state/ledger.jsonl",
+    "outbox": "outbox"
+  },
+  "valves": {
+    "publish_default": "hold_private",
+    "max_events_per_run": 100,
+    "hash_only_publication": true
+  },
+  "routes": {
+    "preserve": ["state_store"],
+    "assimilate": ["state_store", "ai_traversal"],
+    "prune": ["state_store"],
+    "publish": ["witness", "web_surface"],
+    "publish_proof": ["witness"],
+    "fork": ["garden", "state_store"],
+    "repair": ["state_store"],
+    "quarantine": ["state_store"]
+  }
+}

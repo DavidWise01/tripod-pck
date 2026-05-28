@@ -1,0 +1,38 @@
+{
+  "schema": "ROOT0-ATTRIBUTION-v1",
+  "work": {
+    "title": "TriPod PCK — Personal Continuity Kernel (Torroid Architecture)",
+    "versions": ["v0.1 (pck_orchestrator)"],
+    "created": "2025",
+    "description": "Working Python daemon implementing the Personal Continuity Kernel. Axiom 0: no state persists without an admissible transition. 27 gate rules across 9 domains collapse to preserve/prune/assimilate. Append-only ledger, SHA256 continuity root chain, modular routing. The kernel layer of the CARDINAL/Universe 2 framework.",
+    "license": "CC-BY-ND-4.0",
+    "url": "https://github.com/DavidWise01/tripod-pck"
+  },
+  "human": {
+    "name": "David Lee Wise",
+    "handle": "ROOT0",
+    "github_user": "DavidWise01",
+    "entity": "TriPod LLC",
+    "substrate": "human",
+    "role": "architect · kernel designer · philosopher",
+    "contribution": "Full architecture — Axiom 0, 7 primitives (STATE/EVENT/GATE/TRANSITION/ROOT/VALVE/ASSIMILATION), 27 rule set design, 9 domain taxonomy, continuity root chain design, torroid topology"
+  },
+  "architecture": {
+    "axiom": "No state persists without an admissible transition.",
+    "collapse": "27 → 1",
+    "primitive_states": ["preserve", "prune", "assimilate"],
+    "domains": ["identity", "privacy", "memory", "wisdom", "artifact", "publication", "forking", "repair", "valve"],
+    "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+    "topology": "torroid — kernel is the hole, the 0-point, the arbitration boundary",
+    "root": "SHA256 chain: SHA256({previous_root, record_hash})",
+    "persistence_axis": "-1 (pressure) / 0 (kernel) / +1 (manifested)"
+  },
+  "technical": {
+    "language": "Python 3.9+",
+    "dependencies": "stdlib only",
+    "daemon": "pckd.py --once or --sleep N",
+    "event_format": "JSONL append to events/inbox.jsonl",
+    "state_format": "JSON continuity root + JSONL ledger",
+    "proof_format": "hash-only outbox artifacts"
+  }
+}
